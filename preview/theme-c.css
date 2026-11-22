@@ -1,0 +1,13 @@
+/* C 清新粉彩 */
+:root{--bg:#fff7f9;--card:#ffffff;--text:#3b3440;--muted:#8a7f8e;--line:#f3dfe6;--red:#e86a8e;--green:#3aa58a;--gold:#e86a8e;--blue:#4a8fd6;--hl:#fdeef3;}
+body{font-size:17px;}
+header.site{background:linear-gradient(135deg,#ffd6e2,#d8f3ea);color:#3b3440;padding-top:28px;}
+header.site p{opacity:.8;}
+nav a{color:#3b3440;background:rgba(255,255,255,.7);}
+nav a.on{background:#e86a8e;color:#fff;}
+h2{border-left:none;padding-left:0;}
+h2::before{content:"✿ ";color:#e86a8e;}
+.card{border:none;border-radius:20px;box-shadow:0 4px 16px rgba(232,106,142,.12);}
+.key{background:#fff;border:2px solid #ffd6e2;}
+table{border-radius:14px;overflow:hidden;}
+th{background:#fdeef3;}
