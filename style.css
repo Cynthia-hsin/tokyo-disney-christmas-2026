@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 :root {
   --bg: #fbf8f3;
   --card: #ffffff;
@@ -34,13 +35,68 @@ body {
   font-size: 16px;
 }
 header.site {
-  background: linear-gradient(135deg, #8e1b1b, #1f5a3f);
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 85% 120%, rgba(255,215,120,.25), transparent 55%),
+    linear-gradient(135deg, #7a1414 0%, #a3201b 45%, #1d5a3c 100%);
   color: #fff;
-  padding: 20px 16px 0;
+  padding: 40px 16px 0;
 }
+/* 聖誕燈串 */
+header.site::before {
+  content: "";
+  position: absolute; left: 0; right: 0; top: 0; height: 26px;
+  background:
+    radial-gradient(circle at 15px 16px, #ffd54a 4px, rgba(255,213,74,.5) 6px, transparent 9px) 0 0 / 120px 26px repeat-x,
+    radial-gradient(circle at 45px 16px, #ff5252 4px, rgba(255,82,82,.5) 6px, transparent 9px) 0 0 / 120px 26px repeat-x,
+    radial-gradient(circle at 75px 16px, #69f0ae 4px, rgba(105,240,174,.5) 6px, transparent 9px) 0 0 / 120px 26px repeat-x,
+    radial-gradient(circle at 105px 16px, #82b1ff 4px, rgba(130,177,255,.5) 6px, transparent 9px) 0 0 / 120px 26px repeat-x,
+    radial-gradient(ellipse 70px 10px at 60px 2px, transparent 8px, rgba(255,255,255,.35) 9px, transparent 10px) 0 0 / 60px 26px repeat-x;
+  animation: twinkle 1.6s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+/* 飄雪 */
+header.site::after {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.9) 1.5px, transparent 2.5px),
+    radial-gradient(circle, rgba(255,255,255,.7) 1px, transparent 2px),
+    radial-gradient(circle, rgba(255,255,255,.5) 2px, transparent 3px);
+  background-size: 90px 90px, 60px 60px, 140px 140px;
+  background-position: 0 0, 30px 20px, 70px 50px;
+  animation: snow 14s linear infinite;
+  pointer-events: none;
+  opacity: .8;
+}
+@keyframes twinkle { from { opacity: .55; } to { opacity: 1; } }
+@keyframes snow {
+  from { background-position: 0 0, 30px 20px, 70px 50px; }
+  to { background-position: 0 90px, 30px 80px, 70px 190px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  header.site::before, header.site::after { animation: none; }
+}
+header.site .inner { position: relative; z-index: 1; }
 header.site .inner, main, footer { max-width: 920px; margin: 0 auto; }
-header.site h1 { margin: 0 0 4px; font-size: 1.5rem; }
-header.site p { margin: 0 0 12px; opacity: .9; font-size: .95rem; }
+header.site h1 {
+  margin: 0 0 4px; font-size: 1.7rem; letter-spacing: .04em;
+  text-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+header.site h1::before {
+  content: "Merry Christmas";
+  display: block;
+  font-family: "Great Vibes", "Snell Roundhand", cursive;
+  font-weight: 400;
+  font-size: 2.1rem;
+  line-height: 1.1;
+  color: #ffd76a;
+  letter-spacing: 0;
+  text-shadow: 0 0 12px rgba(255,215,106,.55);
+}
+header.site h1::after { content: " ❄"; color: #e8f4ff; font-size: .8em; }
+header.site p { margin: 0 0 12px; opacity: .92; font-size: .95rem; }
 nav { display: flex; gap: 6px; overflow-x: auto; padding-bottom: 10px; }
 nav a {
   color: #fff; text-decoration: none; white-space: nowrap;
